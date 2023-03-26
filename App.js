@@ -25,6 +25,7 @@ app.use(require('./routes/Signup'))
 app.use(require('./routes/Signin'))
 app.use(checkAuth, require('./routes/Upload'))
 app.use(checkAuth, require('./routes/videoList'))
+// app.use(checkAuth, require('./routes/Myvideos'))
 
 //CONNECTING TO MONGODB
 mongoose.set('strictQuery', true);
