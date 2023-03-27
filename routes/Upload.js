@@ -26,11 +26,13 @@ const upload = multer({
 
 router.post('/api/upload', upload.single('file'), (req, res, next) => {
     try {
+        // You can access the value of the video_description field like this:
+        console.log(req.body);
         thumbnailGenerator.generateThumbnail(
             // /api/videos is made publically available in App.js
             'http://localhost:' + PORT + '/api/videos/' + req.file.filename.replace(/ /g, '_'),
             req.file.filename.replace(/ /g, '_'),
-            req.userData.firstName);
+            req.userData.name,);
         res.status(200).json({
             message: 'Video upload successful'
         });
@@ -41,5 +43,6 @@ router.post('/api/upload', upload.single('file'), (req, res, next) => {
         });
     }
 });
+
 
 module.exports = router;
