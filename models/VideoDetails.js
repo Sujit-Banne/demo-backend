@@ -6,6 +6,7 @@ const uploadSchema = mongoose.Schema({
     upload_title: { type: String, required: true },
     video_path: { type: String, required: true },
     thumbnail_path: { type: String, required: true },
+    video_description: { type: String },
     user: {
         type: ObjectId,
         ref: "user"

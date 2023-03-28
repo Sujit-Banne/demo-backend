@@ -11,7 +11,7 @@ const height = 144;
 
 const VideoDetails = require('../models/VideoDetails')
 
-const generateThumbnail = (target, title, username) => {
+const generateThumbnail = (target, title, username, video_description) => {
     // Remove file extensions from the title
     title = title.replace(/\.(mov|mpg|mpeg|mp4|wmv|avi)$/gi, '');
     const thumbnailPath = path.join(__dirname, '..', 'media', 'uploads', 'video_thumbnails', `${title}.jpg`);
@@ -43,6 +43,7 @@ const generateThumbnail = (target, title, username) => {
         uploader_name: username,
         upload_title: title,
         video_path: target,
+        video_description: video_description,
         thumbnail_path: `http://localhost:${PORT}/api/videos/video_thumbnails/${encodeURIComponent(title)}.jpg`
     });
     videoDetails.save()

@@ -32,7 +32,8 @@ router.post('/api/upload', upload.single('file'), (req, res, next) => {
             // /api/videos is made publically available in App.js
             'http://localhost:' + PORT + '/api/videos/' + req.file.filename.replace(/ /g, '_'),
             req.file.filename.replace(/ /g, '_'),
-            req.userData.name,);
+            req.userData.name,
+            req.body.video_description);
         res.status(200).json({
             message: 'Video upload successful'
         });
