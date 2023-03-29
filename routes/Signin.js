@@ -10,6 +10,7 @@ const key = process.env.KEY
 const User = require('../models/User')
 
 router.post('/api/signin', (req, res, next) => {
+    console.log(req.body.email);
     User.find({ email: req.body.email })
         .exec()
         .then(user => {
